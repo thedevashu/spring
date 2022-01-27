@@ -1,0 +1,11 @@
+<html>
+
+<body>
+<%String user = (String)request.getAttribute("user");
+System.out.println(user);
+List<Integer> l = (List<Integer>)request.getAttribute("bookid");
+%>
+<h1>Welcome <%=user%></h1>
+
+</body>
+</html>

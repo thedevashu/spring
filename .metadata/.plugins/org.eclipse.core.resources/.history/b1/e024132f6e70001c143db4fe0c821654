@@ -1,0 +1,7 @@
+<html>
+
+<body>
+<%String user = (String)request.getParameter("user")%>
+<h1>Welcone <%=user%>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package com.study.myinterface;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MyJPAInterface extends JpaRepository<Book, ID>{
+	
+
+}

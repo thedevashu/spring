@@ -1,0 +1,22 @@
+package com.study.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class WebController {
+
+	@GetMapping("/login")
+	public String login()
+	{
+		return "login";
+	}
+	
+	@PostMapping("/verify")
+	public void verifyUser(@PathVariable String uname ,@PathVariable String pass)
+	{
+		System.out.println(uname+pass);
+	}
+}

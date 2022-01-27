@@ -1,0 +1,8 @@
+<html>
+
+<body>
+<%String user = (String)request.getParameters("user");
+System.out.println(user);%>
+<h1>Welcome <%=user%>
+</body>
+</html>

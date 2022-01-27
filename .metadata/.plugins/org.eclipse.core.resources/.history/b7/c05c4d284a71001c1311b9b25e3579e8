@@ -1,0 +1,9 @@
+<html>
+
+<body>
+<%String user = (String)request.getAttribute("user");
+System.out.println(user);%>
+<h1>Welcome <%=user%></h1>
+
+</body>
+</html>

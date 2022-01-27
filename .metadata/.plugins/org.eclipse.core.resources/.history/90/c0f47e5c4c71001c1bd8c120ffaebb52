@@ -1,0 +1,19 @@
+<%@page import= "java.util.List"%>
+<html>
+
+<body>
+<form action="/showbook" method="post">
+<select>
+<%String user = (String)request.getAttribute("user");
+System.out.println(user);
+List<Integer> l = (List<Integer>)request.getAttribute("bookid");
+for(int i:l){
+%>
+<option><%=i%></option>
+<%}%>
+</select>
+<input type="submit" value="ok">
+<h1>Welcome <%=user%></h1>
+</form>
+</body>
+</html>
