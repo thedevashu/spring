@@ -20,6 +20,11 @@ public class BookDao {
 		return bk.get(0);
 	}
 	
+	public List<BookEntity> allBooks(){
+		List<BookEntity> l=repo.findAll();
+		return l;
+	}
+	
 	public void deleteBook(String bname) {
 		List<BookEntity> b = repo.findByBname(bname);
 		repo.delete(b.get(0));

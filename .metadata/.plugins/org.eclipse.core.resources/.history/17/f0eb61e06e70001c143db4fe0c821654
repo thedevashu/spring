@@ -1,8 +1,0 @@
-<html>
-
-<body>
-<%String user = (String)request.getParameter("user");
-System.out.println(user);%>
-<h1>Welcone <%=user%>
-</body>
-</html>

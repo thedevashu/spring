@@ -19,14 +19,16 @@ public class BookController {
 	private BookDAOBean bd;
 	
 	@PostMapping("/addbook")
-	public void addBook(@RequestBody BookPojo bp) {
+	public BookPojo addBook(@RequestBody BookPojo bp) {
 		bd.addBook(bp);
 		System.out.println(bp);
 		System.out.println("Query succes");
+		return bp;
 	}
 	@GetMapping("/read")
 	public List<BookPojo> readAll()
 	{
+//		System.out.println(bd.readAll());
 		return bd.readAll();
 	}
 

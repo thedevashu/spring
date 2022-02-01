@@ -1,0 +1,83 @@
+<html>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(() => {
+            $("#add").click(() => {
+                var id = $("#id").val()
+                var name = $("#name").val()
+                var author = $("#author").val()
+
+                var data = { id: id, name: name, author: author }
+                var json = JSON.stringify(data)
+
+                $.ajax({
+                    url: '/book/addbook',
+                    type: 'post',
+                    data: json,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: (msg) => {
+                        alert(msg.name)
+                        console.log(data);
+                    }
+                })
+            })
+            $("#b1").click(() => {
+
+                var num1 = $("#num1").val()
+                var num2 = $("#num2").val()
+                $.ajax({
+                    url: `/add/${num1}/${num2}`,
+                    type: "post",
+                    success: (res) => {
+                        $("h1").html("")
+                        var d = res
+                        console.log(d);
+                        // $("h1").append(d)
+                        $("h1").text(d)
+                    }
+
+                })
+
+                $.ajax(
+                    {
+                        url: "/book/read",
+                        type: "GET",
+                        success: function (responseData) {
+                            $("#get").html("")
+                            var ans = responseData
+                            var tab = $("<table border='1'></table>")
+                            for (var i = 0; i < ans.length; i++)
+                                tab.append(`<tr><td>${ans[i].id}</td><td>${ans[i].name}</td><td>${ans[i].author}</td></tr>`)
+                            $("#get").append(tab)
+                        }
+
+                    }
+
+                )
+
+
+            })
+
+        })
+    </script>
+
+    <input type="number" name="num1" id="num1">
+    <br>
+    <input type="number" name="num2" id="num2">
+    <button id="b1">Show</button>
+    <p id="get"></p>
+    <h1></h1>
+
+    <input type="number" name="id" id="id">
+    <br>
+    <input type="text" name="name" id="name">
+    <br>
+    <input type="text" name="author" id="author">
+    <button id="add">Add Book</button>
+</body>
+
+</html>

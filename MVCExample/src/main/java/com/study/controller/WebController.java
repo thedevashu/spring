@@ -13,12 +13,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.study.dao.BookDao;
+import com.study.entity.BookEntity;
 
 @Controller
 public class WebController {
 
 	@Autowired
 	BookDao bk;
+	
+	@GetMapping("/books")
+	public List<BookEntity> allBooks(){
+		System.out.println(bk.allBooks());
+		return bk.allBooks();
+	}
+	
 	@GetMapping("/login")
 	public String login()
 	{
@@ -31,6 +39,7 @@ public class WebController {
 		bk.deleteBook(bname);
 		return "login";
 	}
+	
 	
 	@PostMapping("/verify")
 	public String verifyUser(Model model,@RequestParam String uname,@RequestParam String pass)
@@ -52,5 +61,7 @@ public class WebController {
 		model.addAttribute("book", bk.getBook(bname));
 		return "book";
 	}
+	
+	
 	
 }

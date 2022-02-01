@@ -1,0 +1,35 @@
+<html>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(() => {
+            $("#b1").click(() => {
+
+                $.ajax(
+                    {
+                        url: "/books",
+                        type: "GET",
+                        success: function (responseData) {
+                            var ans = responseData
+                            console.log(ans);
+                        }
+                    }
+
+                )
+                console.log(num1, num2);
+
+            })
+
+        })
+    </script>
+
+    <input type="number" id="num1">
+    <br>
+    <input type="number" id="num2">
+    <button id="b1">add</button>
+
+</body>
+
+</html>
